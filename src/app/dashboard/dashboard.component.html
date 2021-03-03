@@ -1,0 +1,44 @@
+<div class=" dashboard">
+    <mat-card class="topBoard">
+        <div class="topBoardContent">
+            <div class="projectQuality">
+                <app-card-for-number-display
+                    [model]="dataArray.topboardContent.codeCoverage">
+                    </app-card-for-number-display>
+            </div>
+            <div class="breakline"></div>
+            <div class="files">
+                <app-card-for-number-display
+                    [model]="dataArray.topboardContent.files">
+                    </app-card-for-number-display>
+            </div>
+            <div class="breakline"></div>
+            <div class="files">
+                <app-card-for-number-display
+                    [model]="dataArray.topboardContent.tests">
+                    </app-card-for-number-display>
+            </div>
+            <div class="breakline"></div>
+            <div class="projectQuality">
+                <app-card-for-number-display
+                    [model]="dataArray.topboardContent.projectQuality">
+                    </app-card-for-number-display>
+            </div>
+        </div>
+    </mat-card>
+    <div class="bottomContent">
+        <div class="cards">
+            <div class="card" *ngFor="let modelForCard of dataArray.cardDataArray">
+                <mat-card class="materialCard">
+                    <app-card-for-number-display
+                    [model]="modelForCard">
+                    </app-card-for-number-display>
+                </mat-card>
+            </div>
+        </div>
+        <div class="graph">
+            <app-pie-chart [pieChartData]="dataArray.graphData"></app-pie-chart>
+        </div>
+    </div>
+    <button mat-raised-button color="primary" class="addButton" (click)="addData()">Add new data</button>
+</div>

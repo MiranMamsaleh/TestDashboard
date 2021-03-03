@@ -1,0 +1,13 @@
+<mat-card class="pieChart">
+    <h4 class="name">Problems by Severity</h4>
+    <canvas baseChart 
+      [data]="pieChartData" 
+      [labels]="pieChartLabels" 
+      [chartType]="pieChartType"
+      [options]="pieChartOptions"
+      [plugins]="pieChartPlugins"
+      [legend]="pieChartLegend"
+      [colors]="pieChartColors">
+    </canvas>
+</mat-card>
+  

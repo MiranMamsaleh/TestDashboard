@@ -1,0 +1,46 @@
+<div class="cardForNumberDisplay">   
+    <h4 class="name">{{model.name}}</h4>
+    <div *ngIf="model.arrow; else arrowDown">
+        <div class="middle">
+            <div class="middleNumber">
+                <p class="currentNumber">{{model.currentNumber}}</p>
+                <p class="outOfNumber"><fa-icon [icon]="faArrowUp"></fa-icon>&nbsp;{{model.lastNumber}}</p>
+            </div>
+        </div>
+    </div>
+    <ng-template #arrowDown>
+        <div class="middle">
+            <div class="middleNumber" *ngIf="model.color == ''; else onlyGreenText">
+                <p class="currentNumber">{{model.currentNumber}}</p>
+                <p class="outOfNumber" *ngIf="model.lastNumber"><fa-icon [icon]="faArrowDown"></fa-icon>&nbsp;{{model.lastNumber}}</p>
+            </div>
+            <ng-template #onlyGreenText>
+                <div class="middleNumber" >
+                    <p class="currentNumber" [style.color]="model.color === 'r' ? '#f7632d' : model.color === 'y' ? '#fcba03' : '#8ab993'">{{model.currentNumber}}</p>
+                </div>
+            </ng-template>
+        </div>
+    </ng-template>
+    <div *ngIf="model.amountOfPlus == 1">
+        <div class="quartercircle withOnePlus">
+            <div class="plus">
+                &#43;
+            </div>
+        </div>
+    </div>
+    <div *ngIf="model.amountOfPlus == 2">
+        <div class="quartercircle withTwoPlus">
+            <div class="plus twoPlus">
+                &#43;&#43;
+            </div>
+        </div>
+    </div>
+    <div *ngIf="model.showGraph">
+        <div class="graph">
+            <div class="barGraph" *ngFor="let number of model.previousDataArray">
+                <div style.height="{{number}}px"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
